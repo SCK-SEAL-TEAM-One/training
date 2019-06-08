@@ -4,48 +4,54 @@ import (
 	"fmt"
 )
 
-type example struct {
-	flag    bool
-	counter int16
-	pi      float32
+type student struct {
+	name   string
+	code   int
+	gpa    float64
+	status bool
 }
 
 func main() {
 	// Declare a variable of type example set to its
 	// zero value.
-	var e1 example
+	var s1 student
 
 	// Display the value.
-	fmt.Printf("23 %+v\n", e1)
+	fmt.Printf("Student %+v\n", s1)
 
 	// Declare a variable of type example and init using
 	// a struct literal.
-	e2 := example{
-		flag:    true,
-		counter: 10,
-		pi:      3.141592,
+	s2 := student{
+		name:   "Nareenart",
+		code:   1044,
+		gpa:    4.00,
+		status: true,
 	}
 
 	// Display the field values.
-	fmt.Println("Flag", e2.flag)
-	fmt.Println("Counter", e2.counter)
-	fmt.Println("Pi", e2.pi)
+	fmt.Println("Name", s2.name)
+	fmt.Println("Code", s2.code)
+	fmt.Println("GPA", s2.gpa)
+	fmt.Println("Status", s2.status)
 
 	// Declare a variable of an anonymous type and init
 	// using a struct literal.
-	e3 := struct {
-		flag    bool
-		counter int16
-		pi      float32
+	s3 := struct {
+		name   string
+		code   int
+		gpa    float64
+		status bool
 	}{
-		flag:    true,
-		counter: 10,
-		pi:      3.141592,
+		name:   "Panumars",
+		code:   1002,
+		gpa:    3.59,
+		status: true,
 	}
 
 	// Display the values.
-	fmt.Printf("%+v\n", e3)
-	fmt.Println("Flag", e3.flag)
-	fmt.Println("Counter", e3.counter)
-	fmt.Println("Pi", e3.pi)
+	fmt.Printf("%+v\n", s3)
+	fmt.Println("Name", s3.name)
+	fmt.Println("Code", s3.code)
+	fmt.Println("GPA", s3.gpa)
+	fmt.Println("Status", s3.status)
 }

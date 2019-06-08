@@ -5,16 +5,17 @@ import (
 	"fmt"
 )
 
-type example1 struct {
-	flag    bool
-	counter int16
-	pi      float32
+type student struct {
+	name   string
+	code   int
+	gpa    float64
+	status bool
 }
 
-type Example2 struct {
-	Flag    bool
-	Counter int16
-	Pi      float32
+type Customer struct {
+	Name  string
+	Code  int
+	Price float64
 }
 
 type example3 struct {
@@ -26,10 +27,11 @@ type example3 struct {
 func main() {
 	// Declare a variable of type example and init using
 	// a struct literal.
-	e1 := example1{
-		flag:    true,
-		counter: 10,
-		pi:      3.141592,
+	e1 := student{
+		name:   "Apipol",
+		code:   5555,
+		gpa:    3.99,
+		status: true,
 	}
 
 	// Call outside package encoding/json
@@ -47,10 +49,10 @@ func main() {
 
 	// Declare a variable of type example and init using
 	// a struct literal.
-	e2 := Example2{
-		Flag:    true,
-		Counter: 10,
-		Pi:      3.141592,
+	e2 := Customer{
+		Name:  "Karnwat",
+		Code:  10,
+		Price: 3999.98,
 	}
 
 	// Call outside package encoding/json

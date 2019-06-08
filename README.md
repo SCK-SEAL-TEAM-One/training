@@ -4,10 +4,6 @@
 
 ### 1. Performance
  - ความเป็นมาของภาษา Go
- - Productivity
- - Integrity
- - Readability
- - Simplicity
 
 ### 2. Install Go
  - หลังติดตั้งทดสอบด้วยการ print ข้อความ Hello world 	

@@ -8,16 +8,14 @@ package main
 
 // Add imports.
 
-// user represents a user in the system.
+// user represents a user name and email in the system.
 
 // newUser creates and returns pointers of user type values.
 
 func main() {
 
-	// Create a value of type user.
+	// Call the function and just check the error on the return.
 
 	// Display the value.
-
-	// Call the function and just check the error on the return.
 
 }

@@ -8,27 +8,27 @@ import (
 func main() {
 
 	// Declare variables that are set to their zero value.
-	var a int32
-	var b string
-	var c float64
-	var d bool
+	var amount int
+	var name string
+	var price float64
+	var status bool
 
-	fmt.Printf("var a int \t %T [%v], size: %d byte\n", a, a, unsafe.Sizeof(a))
-	fmt.Printf("var b string \t %T [%v], size: %d byte\n", b, b, unsafe.Sizeof(b))
-	fmt.Printf("var c float64 \t %T [%v], size: %d byte\n", c, c, unsafe.Sizeof(c))
-	fmt.Printf("var d bool \t %T [%v]\n\n", d, d)
+	fmt.Printf("var amount int \t %T [%v], size: %d byte\n", amount, amount, unsafe.Sizeof(amount))
+	fmt.Printf("var name string \t %T [%v], size: %d byte\n", name, name, unsafe.Sizeof(name))
+	fmt.Printf("var price float64 \t %T [%v], size: %d byte\n", price, price, unsafe.Sizeof(price))
+	fmt.Printf("var status bool \t %T [%v]\n\n", status, status)
 
 	// Declare variables and initialize.
 	// Using the short variable declaration operator.
-	aa := 10
-	bb := "hello"
-	cc := 3.14159
-	dd := true
+	money := 10
+	say := "Hello"
+	gpa := 3.99
+	active := true
 
-	fmt.Printf("aa := 10 \t %T [%v]\n", aa, aa)
-	fmt.Printf("bb := \"hello\" \t %T [%v]\n", bb, bb)
-	fmt.Printf("cc := 3.14159 \t %T [%v]\n", cc, cc)
-	fmt.Printf("dd := true \t %T [%v]\n\n", dd, dd)
+	fmt.Printf("money := 10 \t %T [%v]\n", money, money)
+	fmt.Printf("say := \"hello\" \t %T [%v]\n", say, say)
+	fmt.Printf("gpa := 3.14159 \t %T [%v]\n", gpa, gpa)
+	fmt.Printf("active := true \t %T [%v]\n\n", active, active)
 
 	// Specify type and perform a conversion.
 	aaa := int32(10)

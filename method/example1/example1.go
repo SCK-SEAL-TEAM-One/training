@@ -32,28 +32,8 @@ func main() {
 	bill.changeEmail("bill@hotmail.com")
 	bill.notify()
 
-	// Pointers of type user can also be used to call methods
 	// declared with both value and pointer receiver.
 	joan := &user{"Joan", "joan@email.com"}
 	joan.changeEmail("joan@hotmail.com")
 	joan.notify()
-
-	// Create a slice of user values with two users.
-	users := []user{
-		{"ed", "ed@email.com"},
-		{"erick", "erick@email.com"},
-	}
-
-	// Iterate over the slice of users switching
-	// semantics. Not Good!
-	for _, u := range users {
-		u.changeEmail("it@wontmatter.com")
-	}
-
-	// Exception example: Using pointer semantics
-	// for a collectoin of strings.
-	keys := make([]string, 10)
-	for i := range keys {
-		keys[i] = func() string { return "key-gen" }()
-	}
 }

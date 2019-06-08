@@ -4,41 +4,78 @@ package main
 
 import "fmt"
 
-// duration is a named type that represents a duration
-// of time in Nanosecond.
-type duration int64
-
-const (
-	nanosecond  duration = 1
-	microsecond          = 1000 * nanosecond
-	millisecond          = 1000 * microsecond
-	second               = 1000 * millisecond
-	minute               = 60 * second
-	hour                 = 60 * minute
-)
-
-// setHours sets the specified number of hours.
-func (d *duration) setHours(h float64) {
-	*d = duration(h) * hour
+// human is a struct to bind methods to.
+type human struct {
+	name string
+	age  int
 }
 
-// hours returns the duration as a floating point number of hours.
-func (d duration) hours() float64 {
-	hour := d / hour
-	nsec := d % hour
-	return float64(hour) + float64(nsec)*(1e-9/60/60)
+// displayName provides a pretty print view of the name.
+func (d human) displayName() {
+	fmt.Println("My Name Is", d.name)
+}
+
+// setAge sets the age and displays the value.
+func (d *human) setAge(age int) {
+	d.age = age
+	fmt.Println(d.name, "Is Age", d.age)
 }
 
 func main() {
 
-	// Declare a variable of type duration set to
-	// its zero value.
-	var dur duration
+	// Declare a variable of type human.
+	d := human{
+		name: "Bill",
+	}
+	c := human{
+		name: "lek",
+	}
 
-	// Change the value of dur to equal
-	// five hours.
-	dur.setHours(5)
+	fmt.Println("Proper Calls to Methods:")
 
-	// Display the new value of dur.
-	fmt.Println("Hours:", dur.hours())
+	// How we actually call methods in Go.
+	d.displayName()
+	d.setAge(45)
+
+	fmt.Println("\nWhat the Compiler is Doing:")
+
+	// This is what Go is doing underneath.
+	human.displayName(c)
+	(*human).setAge(&c, 24)
+
+	// =========================================================================
+
+	fmt.Println("\nCall Value Receiver Methods with Variable:")
+
+	// Declare a function variable for the method bound to the d variable.
+	// The function variable will get its own copy of d because the method
+	// is using a value receiver.
+	f1 := d.displayName
+
+	// Call the method via the variable.
+	f1()
+
+	// Change the value of d.
+	d.name = "Joan"
+
+	// Call the method via the variable. We don't see the change.
+	f1()
+
+	// =========================================================================
+
+	fmt.Println("\nCall Pointer Receiver Method with Variable:")
+
+	// Declare a function variable for the method bound to the d variable.
+	// The function variable will get the address of d because the method
+	// is using a pointer receiver.
+	f2 := d.setAge
+
+	// Call the method via the variable.
+	f2(45)
+
+	// Change the value of d.
+	d.name = "Sammy"
+
+	// Call the method via the variable. We see the change.
+	f2(45)
 }

@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+type Person struct {
+	FirstName string
+	LastName  string
+	Age       int
+}
+
 type student struct {
 	name   string
 	code   int
@@ -18,6 +24,12 @@ func main() {
 
 	// Display the value.
 	fmt.Printf("Student %+v\n", s1)
+
+	// Initialize a struct by supplying the value of all the struct fields.
+	var p = Person{"Rajeev", "Singh", 26}
+
+	// Display the value.
+	fmt.Printf("Person %+v\n", p)
 
 	// Declare a variable of type example and init using
 	// a struct literal.

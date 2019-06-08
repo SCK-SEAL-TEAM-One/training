@@ -1,10 +1,3 @@
-// From Spec:
-// a short variable declaration may redeclare variables provided they
-// were originally declared earlier in the same block with the same
-// type, and at least one of the non-blank variables is new.
-
-// Sample program to show some of the mechanics behind the
-// short variable declaration operator redeclares.
 package main
 
 import "fmt"
@@ -17,26 +10,18 @@ type user struct {
 
 func main() {
 
-	// Declare the error variable.
-	var err1 error
-
-	// The short variable declaration operator will
-	// declare u and redeclare err1.
-	u, err1 := getUser()
-	if err1 != nil {
+	// getUser Don't care about the user value.
+	_, err := getUser()
+	if err != nil {
 		return
 	}
 
-	fmt.Println(u)
+	fmt.Println("err is: ", err)
 
-	// The short variable declaration operator will
-	// redeclare u and declare err2.
-	u, err2 := getUser()
-	if err2 != nil {
-		return
-	}
+	// getUser Don't care about the error value.
+	u, _ := getUser()
 
-	fmt.Println(u)
+	fmt.Printf("user is: %+v\n", u)
 }
 
 // getUser returns a pointer of type user.
